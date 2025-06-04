@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.routers import about, messages, root
+from routers import about, messages, root
 
 app = FastAPI()
 
