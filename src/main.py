@@ -5,4 +5,4 @@ app = FastAPI()
 
 app.include_router(root.router)
 app.include_router(about.router)
-app.include_router(messages.router)
+app.include_router(messages.router, prefix="/messages")
