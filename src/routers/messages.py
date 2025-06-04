@@ -1,8 +1,9 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from datetime import datetime
 import json
 import os
+from typing import List
 
 router = APIRouter()
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', 'data')
@@ -31,7 +32,7 @@ class MessageIn(BaseModel):
 
 class MessageOut(BaseModel):
     msg_id: int
-    msg_name: str
+    msg_name: str  # change the name to message content
     date: str
 
 
@@ -48,3 +49,23 @@ def add_msg(msg: MessageIn):
     messages.append(msg_obj)
     save_messages(messages)
     return msg_obj
+
+
+@router.get("/", response_model=List[MessageOut])
+def get_all_messages():
+    messages = load_messages()
+    return messages
+
+
+@router.get("/{msg_id}", response_model=MessageOut)
+def get_message(msg_id: int):
+    messages = load_messages()
+
+    message_dict = {msg["msg_id"]: msg for msg in messages}
+
+    if msg_id in message_dict:
+        return message_dict[msg_id]
+
+    raise HTTPException(
+        status_code=404,
+        detail=f"Message with ID {msg_id} not found")
