@@ -8,6 +8,7 @@ router = APIRouter()
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', 'data')
 DATA_FILE = os.path.join(DATA_FOLDER, 'messages.json')
 
+
 def load_messages():
     if not os.path.exists(DATA_FILE):
         return []
@@ -17,18 +18,22 @@ def load_messages():
         except json.JSONDecodeError:
             return []
 
+
 def save_messages(messages):
     os.makedirs(DATA_FOLDER, exist_ok=True)
     with open(DATA_FILE, 'w') as f:
         json.dump(messages, f, indent=2)
-        
+
+
 class MessageIn(BaseModel):
     msg_name: str
+
 
 class MessageOut(BaseModel):
     msg_id: int
     msg_name: str
     date: str
+
 
 @router.post("/", response_model=MessageOut)
 def add_msg(msg: MessageIn):
@@ -43,4 +48,3 @@ def add_msg(msg: MessageIn):
     messages.append(msg_obj)
     save_messages(messages)
     return msg_obj
-    return {"message": msg_obj}

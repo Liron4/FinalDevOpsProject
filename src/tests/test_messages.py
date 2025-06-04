@@ -3,6 +3,7 @@ from main import app
 
 client = TestClient(app)
 
+
 def test_post_message():
     response = client.post("/messages/", json={"msg_name": "test"})
     assert response.status_code == 200

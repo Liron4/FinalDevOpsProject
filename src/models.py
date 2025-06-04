@@ -1,3 +1,5 @@
+
+
 class MsgPayload:
     def __init__(self, msg_id: int, msg_name: str):
         self.msg_id = msg_id
