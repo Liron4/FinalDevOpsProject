@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build-and-test:
@@ -27,7 +29,7 @@ jobs:
           pip install flake8 pytest
 
       - name: Run unit tests
-        run: pytest src/tests/test_messages.py
+        run: PYTHONPATH=src pytest src/tests/test_messages.py
 
       - name: Lint with flake8
         run: flake8 src
