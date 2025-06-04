@@ -32,7 +32,7 @@ class MessageIn(BaseModel):
 
 class MessageOut(BaseModel):
     msg_id: int
-    msg_name: str  # change the name to message content
+    msg_name: str
     date: str
 
 
