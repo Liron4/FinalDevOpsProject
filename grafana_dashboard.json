@@ -1,0 +1,43 @@
+{
+    "dashboard": {
+        "id": null,
+        "title": "FastAPI Metrics",
+        "panels": [
+            {
+                "type": "stat",
+                "title": "Total HTTP Requests",
+                "targets": [
+                    {
+                        "expr": "sum(http_requests_total)",
+                        "format": "table"
+                    }
+                ],
+                "gridPos": { "x": 0, "y": 0, "w": 8, "h": 4 }
+            },
+            {
+                "type": "stat",
+                "title": "Messages Created",
+                "targets": [
+                    {
+                        "expr": "sum(messages_created_total)",
+                        "format": "time_series"
+                    }
+                ],
+                "gridPos": { "x": 8, "y": 0, "w": 8, "h": 4 }
+            },
+            {
+                "type": "graph",
+                "title": "Request Latency (seconds)",
+                "targets": [
+                    {
+                        "expr": "rate(http_request_latency_seconds_sum[1m]) / rate(http_request_latency_seconds_count[1m])",
+                        "format": "heatmap"
+                    }
+                ],
+                "gridPos": { "x": 0, "y": 4, "w": 16, "h": 8 }
+            }
+        ],
+        "schemaVersion": 30,
+        "version": 1
+    }
+}

@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches and test output
+.pytest_cache/
+*.log
+
+# Virtual environments
+venv/
+.env/
+.env
+
+# VSCode settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Local data files
+*.sqlite3
+*.db
+
+# Docker
+*.pid
+
+# Ignore data files (optional, if you want to ignore your messages data)
+# src/data/messages.json
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.tox/
