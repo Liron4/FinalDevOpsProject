@@ -1,8 +1,7 @@
 from fastapi import FastAPI
-from routers import about, messages, root
+from routers import metrics, messages
 
 app = FastAPI()
 
-app.include_router(root.router)
-app.include_router(about.router)
 app.include_router(messages.router, prefix="/messages")
+app.include_router(metrics.metrics_router, prefix="/metrics")
