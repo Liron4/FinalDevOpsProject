@@ -27,6 +27,7 @@ def test_get_all_messages():
         assert "msg_content" in message
         assert "date" in message
 
+
 """
 def test_get_message_by_id():
     post_response = client.post(

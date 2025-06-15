@@ -70,6 +70,7 @@ def get_all_messages():
         endpoint="/messages/").observe(latency)
     return messages
 
+
 """
 @router.get("/{msg_id}", response_model=MessageOut)
 def get_message(msg_id: int):
