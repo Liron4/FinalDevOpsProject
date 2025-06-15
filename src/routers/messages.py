@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-#from fastapi import HTTPException
+# from fastapi import HTTPException
 from pydantic import BaseModel
 from .metrics import REQUEST_COUNT, REQUEST_LATENCY, MESSAGES_CREATED
 from datetime import datetime, timezone
