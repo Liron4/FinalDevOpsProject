@@ -22,21 +22,23 @@ It demonstrates best practices in Python API development, Dockerization, monitor
 ```
 .
 ├── src/
-│   ├── main.py              # FastAPI app entrypoint
+│   ├── main.py                       # FastAPI app entrypoint
 │   ├── routers/
-│   │   ├── messages.py      # Message endpoints & business logic
-│   │   └── metrics.py       # Prometheus metrics & /metrics endpoint
+│   │   ├── messages.py               # Message endpoints & business logic
+│   │   └── metrics.py                # Prometheus metrics & /metrics endpoint
 │   └── tests/
-│       ├── test_messages.py # Unit tests for message endpoints
-│       └── test_metrics.py  # Unit tests for metrics endpoint
-├── requirements.txt         # Python dependencies
-├── Dockerfile               # Docker build instructions
-├── docker-compose.yml       # Local monitoring stack (Prometheus, Grafana, Node Exporter)
-├── prometheus.yml           # Prometheus scrape config
-├── grafana_dashboard.json   # Example Grafana dashboard
+│       ├── test_messages.py          # Unit tests for message endpoints
+│       └── test_metrics.py           # Unit tests for metrics endpoint
+│       └── data/
+│           └── messages.json         # Data file
+├── requirements.txt                  # Python dependencies
+├── Dockerfile                        # Docker build instructions
+├── docker-compose.yml                # Local monitoring stack (Prometheus, Grafana, Node Exporter)
+├── prometheus.yml                    # Prometheus scrape config
+├── grafana_dashboard.json            # Example Grafana dashboard
 ├── .github/workflows/
-│   ├── CI.yml               # CI: lint, test, build
-│   └── CD.yml               # CD: build, push, deploy to Render
+│   ├── CI.yml                        # CI: lint, test, build
+│   └── CD.yml                        # CD: build, push, deploy to Render
 └── README.md
 ```
 
