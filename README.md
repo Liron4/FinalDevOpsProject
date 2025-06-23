@@ -74,7 +74,7 @@ docker compose up -d
 ### Production Deployment
 
 - The app is deployed on [Render](https://fastapi-notes-tl4r.onrender.com/)
-- Docker image: [`liron123/fastapi-notes`](https://hub.docker.com/repository/docker/liron123/fastapi-notes)
+- Docker image: [`liron123/fastapi-notes`](https://hub.docker.com/r/liron123/fastapi-notes)
 
 ---
 
