@@ -72,7 +72,6 @@ def get_all_messages():
     return messages
 
 
-
 @router.get("/{msg_id}", response_model=MessageOut)
 def get_message(msg_id: int):
     start = datetime.now(timezone.utc)
@@ -88,4 +87,3 @@ def get_message(msg_id: int):
     raise HTTPException(
         status_code=404,
         detail=f"Message with ID {msg_id} not found")
-
